@@ -1,0 +1,1232 @@
+<head>
+
+</head>
+
+<body>
+    <style>
+        body {
+            width: 100%;
+            margin: 0 auto;
+            font-family: 'Lucida Sans Unicode', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        #home-epdata {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Encabezado con el logo, el menú y la cuenta */
+
+        #encabezado-logo-datos {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            height: 100px;
+            border-bottom: 3px solid #19d8f1;
+            justify-content: space-around;
+            position: sticky;
+            z-index: 1000;
+            top: 0;
+            background-color: white;
+        }
+
+        .divisoria-seccion {
+            margin-top: 6rem;
+            width: 100%;
+            border: none;
+            background-color: #ffffff;
+            height: 2px;
+
+        }
+
+        #logo-epdata {
+            width: 8%;
+            background-image: url('rsc/140x46.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 1rem;
+        }
+
+        #logo-epdata:hover {
+            opacity: 0.8;
+            transition-duration: 0.5s;
+            cursor: pointer;
+        }
+
+        #tema-analisis {
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #contenido-tema-analisis {
+            width: 700px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        #contenido-tema-analisis a {
+            text-decoration: none;
+            color: #206074;
+            font-weight: bold;
+            padding: 0.5rem;
+            border-bottom: white solid 2px;
+        }
+
+        #contenido-tema-analisis a:hover {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            background-color: #c1f1ff;
+            padding: 0.5rem;
+            border-bottom: #ffde05 solid 2px;
+            transition: 0.2s;
+        }
+
+        #mi-cuenta {
+            width: 12%;
+            font-size: 1.2rem;
+            display: flex;
+            font-weight: bold;
+            color: #206074;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        #mi-cuenta:hover {
+            color: black;
+            cursor: pointer;
+            background-color: #c1f1ff;
+            transition: 1s;
+        }
+
+        #mi-cuenta img {
+            width: 30px;
+            height: 30px;
+            margin-right: 1rem;
+        }
+
+        /* Sección con el buscador */
+
+        #descubre-datos {
+            width: 100%;
+            height: 700px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to left, #206074, #01a1b6);
+        }
+
+        @keyframes opacidadfondo {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 0.05;
+            }
+        }
+
+        #img-fondo {
+            animation: opacidadfondo 2s ease-out;
+            transform-origin: center;
+            width: 100%;
+            height: 100%;
+            background-repeat: repeat-x;
+            background-size: contain;
+            overflow: hidden;
+            opacity: 0.05;
+            text-shadow: #206074 2px 2px 2px;
+            position: absolute;
+            background-image: url('rsc/fondo.jpg');
+            background-size: cover;
+            background-size: 90%;
+            background-position: bottom center;
+        }
+
+        /*
+        #descubre-datos:hover #img-fondo,
+        #descubre-datos-textos:hover~#img-fondo,
+        #descubre-datos:hover #img-fondo {
+            opacity: 1;
+            transition-duration: 1s;
+        }
+        */
+
+        #descubre-datos-textos {
+            z-index: 1;
+            position: relative;
+            height: 100%;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        #titulo-grande-descubre-datos {
+            font-size: 2.2rem;
+            color: #ffffff;
+            font-weight: bold;
+            margin-bottom: 0;
+            text-shadow: #206074 2px 2px 2px;
+            text-align: left;
+        }
+
+        #parte-buscador {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #parte-buscador textarea {
+            resize: none;
+            width: 70%;
+            font-size: 1.7rem;
+            height: 4.2rem;
+            color: #206074;
+            border: 3px solid #206074;
+
+        }
+
+        #parte-buscador textarea:hover {
+            resize: none;
+            border: 3px solid #ffde05;
+        }
+
+        #boton-buscar {
+            background-color: #447787;
+            color: white;
+            font-weight: bold;
+            padding: 1rem;
+            border: 3px solid #206074;
+            font-size: 1.2rem;
+        }
+
+        #boton-buscar:hover {
+            background-color: #206074;
+            color: #ffde05;
+            font-weight: bold;
+            padding: 1rem;
+            cursor: pointer;
+            border: 3px solid #ffde05;
+        }
+
+        .titulo-mediano-descubre-datos {
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 1.2rem;
+            text-shadow: #206074 2px 2px 2px;
+        }
+
+        .url-home {
+            color: #ffde05;
+            cursor: pointer;
+        }
+
+        .url-home:hover {
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            border-bottom: 2px solid #ffde05;
+
+        }
+
+        #parte-buscador textarea::placeholder {
+            color: #b0b0b0;
+            font-size: 1.3rem;
+            font-style: italic;
+            opacity: 1;
+        }
+
+        #fuente-o-tema {
+            text-align: left;
+        }
+
+
+        .url-tag {
+            background-color: #206074;
+            opacity: 0.8;
+            color: white;
+            font-size: 1.2rem;
+            padding: 0 1rem;
+            margin: 0 0.2rem;
+            font-weight: bold;
+            border-bottom: #206074 2px solid;
+            border-right: #206074 2px solid;
+        }
+
+        .url-tag:hover {
+            background-color: #ffde05;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #textos-bajo-buscador {
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        /* Módulo de últimos análisis */
+
+        #modulo-temas-1 {
+            width: 90%;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cuerpo-modulo {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+
+        .encabezado-modulo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .encabezado-modulo h3 {
+            border-bottom: 5px solid #19d8f1;
+            font-size: 2.2rem;
+            color: #000000;
+            font-weight: bolder;
+            text-align: left;
+            padding-top: 0.2rem;
+            text-align: center;
+        }
+
+        .encabezado-modulo h3:hover {
+            border-bottom: 5px solid #ffde05;
+        }
+
+        .modulo-temas-listado,
+        .modulo-datos-listado {
+            margin: 0 1rem 0 0;
+            overflow-y: auto;
+            max-height: 520px;
+            scrollbar-color: #01a1b6 white;
+            background: linear-gradient(to bottom, #f5fdff, #ffffff);
+        }
+
+        .modulo-temas-listado {
+            width: 45%;
+            /* Aquí está el ancho del listado de temas */
+        }
+
+        .entrada-modulo-listado-1,
+        .entrada-modulo-listado-2 {
+            font-size: 1.2rem;
+            border-left: 4px solid #ffde05;
+            padding: 0.7rem 2rem 0.7rem 2rem;
+            font-weight: bold;
+            border-bottom: #bdf7ff solid 2px;
+        }
+
+        .entrada-modulo-listado-1 a {
+            color: black;
+        }
+
+        .entrada-modulo-listado-2 a {
+            color: #206074;
+        }
+
+        .entrada-modulo-listado-1:hover,
+        .entrada-modulo-listado-2:hover {
+            background: linear-gradient(to right, #67ebfc, #ffffff);
+            color: black;
+            cursor: pointer;
+            border-bottom: #bdf7ff solid 2px;
+
+            border-bottom: #ffde05 solid 2px;
+        }
+
+        .img-tema-destacado {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Tema destacado */
+
+        .modulo-tema-destacado {
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            width: 55%;
+            margin: 1rem 1rem 1rem 5rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .img-tema-destacado img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 2rem;
+        }
+
+        .img-tema-destacado img:hover {
+            cursor: pointer;
+            filter: opacity(0.9);
+            transition: 0.5s;
+        }
+
+        .titular-tema-destacado h4 {
+            font-size: 1.5rem;
+            color: black;
+            font-weight: bolder;
+            margin: 2rem;
+            border-bottom: 2px solid #ffde05;
+            display: inline;
+            line-height: 1.7;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .titular-tema-destacado h4:hover {
+            border-bottom: 2px solid #00BAD2;
+            cursor: pointer;
+        }
+
+        .divisoria-titulo {
+            width: 40%;
+            background-color: #19d8f1;
+            border: none;
+            height: 3px;
+            display: block;
+        }
+
+        .link-temas-modulos {
+            text-decoration: none;
+            color: black;
+        }
+
+        #modulo-espacio-datos {
+            width: 100%;
+            min-height: 700px;
+            height: auto;
+            margin: 0 auto;
+            background-color: #effdff;
+        }
+
+        #modulo-espacio-datos-cuerpo {
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        #img-por-que-espacio-datos {
+            background: linear-gradient(to left, #206074, #01a1b6);
+            width: 50%;
+            min-height: 450px;
+            height: 100%;
+            background-image: url('rsc/fondo-espacio-datos.jpg');
+            background-size: cover;
+            opacity: 1;
+        }
+
+        #texto-espacio-datos {
+            width: 50%;
+            height: 100%;
+            font-size: 1.4rem;
+            margin-left: 1.5rem;
+            line-height: 2.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        #texto-espacio-datos ul {
+            padding-left: 1.2em;
+            font-size: 1.3rem;
+            list-style-type: circle;
+        }
+
+        #texto-espacio-datos li {
+            padding-bottom: 1.1em;
+        }
+
+        #texto-espacio-datos b,
+        .cuerpo-producto b {
+            background-color: #c1f1ff;
+            padding: 0 0.2rem 0 0.2rem;
+        }
+
+        #texto-espacio-datos b:hover,
+        .cuerpo-producto b:hover {
+            background-color: #fff5b4;
+            padding: 0 0.2rem 0 0.2rem;
+            transition: 0.5s;
+        }
+
+        #texto-espacio-datos a {
+            border: 3px solid #00BAD2;
+            text-decoration: none;
+            color: #206074;
+            width: 100%;
+            font-weight: bolder;
+            padding: 0.3rem;
+            font-size: 1.3rem;
+
+        }
+
+        #texto-espacio-datos a:hover {
+            border: 3px solid #ffde05;
+            color: black;
+        }
+
+        /* Segundo módulo de temas (que son datos) */
+
+        #modulo-temas-2 {
+            width: 90%;
+            height: 700px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modulo-datos-listado {
+            width: 60%;
+        }
+
+        .entrada-modulo-datos {
+            font-size: 1.2rem;
+            border-left: 4px solid #67ebfc;
+            padding: 0.2rem 2rem 0.2rem 2rem;
+            font-weight: bold;
+            border-bottom: #ffde05 solid 2px;
+        }
+
+        .entrada-modulo-datos:hover {
+            background: linear-gradient(to right, #67ebfc, #ffffff);
+            cursor: pointer;
+            border-bottom: #bdf7ff solid 2px;
+
+        }
+
+        .titulo-dato-modulo {
+            font-weight: bold;
+        }
+
+        .serietipo-dato-modulo {
+            font-size: 1.1rem;
+            color: rgb(116, 116, 116);
+            font-weight: regular;
+        }
+
+        .act-dato-modulo {
+            color: #00BAD2;
+            font-size: 1.1rem;
+        }
+
+        .titulo-dato-modulo,
+        .act-dato-modulo {
+            line-height: 0.5rem;
+        }
+
+        #banner {
+            height: 140px;
+            width: 100%;
+                        background-image: url('/rsc/banner.jpg');
+                        border-bottom: white solid 2px;
+
+        }
+
+        /* Fuentes */
+
+        .cuerpo-modulo-fuentes {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            position: relative;
+            overflow: hidden;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .contenedor-fuentes {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1rem;
+            padding: 1rem;
+            scroll-behavior: smooth;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contenedor-fuentes::-webkit-scrollbar {
+            display: none;
+        }
+
+        .img-fuente {
+            flex: 0 0 calc(90% / 8);
+            scroll-snap-align: center;
+            text-align: center;
+            padding: 0 0.5rem;
+        }
+
+        .img-fuente img {
+            height: 58px;
+            width: auto;
+            margin: 0 auto;
+        }
+
+        .img-fuente img:hover {
+            filter: grayscale(100%);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .flecha {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            color: #00BAD2;
+            width: 70px;
+        }
+
+        .flecha.izquierda {
+            left: 0;
+            background-color: white;
+            height: 100%;
+        }
+
+        .flecha.derecha {
+            right: 0;
+            background-color: white;
+            height: 100%;
+        }
+
+        /* Módulo de productos */
+
+        #modulo-productos-epdata {
+            height: 480px;
+            background-color: #effdff;
+            width: 100%;
+
+        }
+
+        .producto-epdata {
+            width: 500px;
+            margin: 1rem 2rem 1rem 2rem;
+        }
+
+        #cuerpo-modulo-productos {
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .img-producto {
+            height: 32%;
+            background: linear-gradient(to left, #206074, #01a1b6);
+            width: 100%;
+        }
+
+        .titulo-producto {
+            height: 18%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .titulo-producto h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 3px solid #00BAD2;
+            color: #000000;
+            margin: 0;
+            padding-bottom: 0.4rem;
+            padding-top: 0.2rem;
+            display: inline-block;
+            line-height: 3.4rem;
+        }
+
+        .titulo-producto h4:hover {
+            border-bottom: 3px solid #ffde05;
+        }
+
+        .cuerpo-producto {
+            height: 50%;
+        }
+
+        .cuerpo-producto p {
+            font-size: 1.2rem;
+        }
+
+        /* Módulo de temas */
+
+        #modulo-temas-3 {
+            width: 90%;
+            height: 500px;
+            margin: 0 auto;
+            padding-bottom: 10rem;
+        }
+
+        #cuerpo-modulo-temas {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .modulo-tema {
+            width: 280px;
+            height: 45%;
+        }
+
+        .img-tema {
+            height: 75%;
+            background: linear-gradient(to left, #206074, #01a1b6);
+        }
+
+        .img-tema:hover {
+            height: 75%;
+            background: linear-gradient(to left, #01a1b6, #5fd5e5);
+            cursor: pointer
+        }
+
+        .titulo-tema-ver-mas {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+
+        }
+
+        .titulo-tema-ver-mas h4 {
+            font-size: 1.4rem;
+            cursor: pointer;
+            border-bottom: 3px solid #ffffff;
+            padding: 0.2rem 0.5rem;
+            border-bottom: 3px solid #00BAD2;
+
+        }
+
+        .titulo-tema-ver-mas h4:hover {
+            border-bottom: 3px solid #ffde05;
+        }
+
+
+
+        .titulo-tema {
+            height: 25%;
+        }
+
+        .titulo-tema h4 {
+            height: 100%;
+            font-weight: bold;
+            font-size: 1.3rem;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            border-bottom: 3px solid #00BAD2;
+            margin: 0;
+            display: flex;
+        }
+
+        .titulo-tema h4:hover {
+            cursor: pointer;
+            border-bottom: 3px solid #ffde05;
+            color: #00BAD2;
+        }
+
+        /* footer */
+
+        #footer-epdata {
+            width: 100%;
+            background: linear-gradient(to left, #206074, #01a1b6);
+            color: #19d8f1;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 1.2rem;
+            border-top: #ffde05 3px solid;
+        }
+
+        .footer-enlaces a {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 0rem 0.5rem;
+        }
+
+        #editado-por {
+            border-top: 2px solid #00BAD2;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            color: white;
+            text-shadow: #206074 2px 2px 2px;
+
+        }
+
+        #url-a-ep {
+            text-decoration: none;
+            border-bottom: 2px solid white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #url-a-ep:hover {
+            text-decoration: none;
+            border-bottom: 2px solid #ffde05;
+            font-weight: bold;
+        }
+
+        #img-previsiones {
+            background-image: url('/rsc/iconos-temas/previsiones.jpg');
+            background-size: 100%;
+        }
+
+        #img-resultados-empresariales {
+            background-image: url('/rsc/iconos-temas/deficit.jpg');
+            background-size: contain;
+        }
+
+        #img-demografia {
+            background-image: url('/rsc/iconos-temas/poblacion.jpg');
+            background-size: 100%;
+        }
+
+        #img-municipio-datos {
+            background-image: url('/rsc/iconos-temas/municipio-datos.jpg');
+            background-size: 100%;
+        }
+
+        #img-economia-internacional {
+            background-image: url('/rsc/iconos-temas/eco-inter.jpg');
+            background-size: 100%;
+        }
+
+        #img-migracion {
+            background-image: url('/rsc/iconos-temas/migracion.jpg');
+            background-size: 100%;
+        }
+
+        #img-vivienda{
+            background-image: url('/rsc/iconos-temas/municipio-datos.jpg');
+            background-size: 260%;
+            transform: invert(1);
+            background-position: center;
+        }
+
+                #img-salud{
+            background-image: url('/rsc/iconos-temas/resultados.jpg');
+            background-size: 100%;
+            transform: invert(1);
+            background-position: center;
+        }
+
+                #img-violencia-genero {
+            background-image: url('/rsc/iconos-temas/violencia-genero.jpg');
+            background-size: 100%;
+        }
+
+        #img-graficas{
+            background-image: url('/rsc/icono-graficas.jpg')
+        }
+
+                #img-api{
+            background-image: url('/rsc/IMG-APIS.jpg')
+        }
+
+
+    </style>
+    <div id="home-epdata">
+        <div id="atajo">
+            <div id="encabezado-logo-datos">
+                <div id="logo-epdata"></div>
+                <div id="tema-analisis">
+                    <div id="contenido-tema-analisis">
+                        <a href="temas">Temas en gráficos</a>
+                        <a href="analisis">Análisis de datos</a>
+                        <a href="analisis">¿Qué fuentes utilizamos?</a>
+                    </div>
+                </div>
+                <div id="mi-cuenta"><img src="rsc/icono-mi-cuenta.svg">Mi cuenta</div>
+            </div>
+            <div id="banner"></div>
+            <div id="descubre-datos">
+                <div id="img-fondo"></div>
+                <div id="descubre-datos-textos">
+                    <h2 id="titulo-grande-descubre-datos">Descubre miles de datos y gráficos sobre el tema que te
+                        interesa
+                    </h2>
+                    <p class="titulo-mediano-descubre-datos"><a class="url-home">Desempleo</a>, <a
+                            class="url-home">finanzas</a>, <a class="url-home">elecciones</a>, <a
+                            class="url-home">economía</a>, <a class="url-home">resultados
+                            empresariales</a> y muchos más</p>
+                    <div id="buscador-epdata">
+                        <div id="parte-buscador">
+                            <textarea placeholder="Busca datos y gráficos (Ejemplo: PIB, paro, elecciones)"></textarea>
+                            <div id="boton-buscar">Buscar</div>
+                        </div>
+                        <div id="textos-bajo-buscador">
+                            <p id="fuente-o-tema" class="titulo-mediano-descubre-datos">Buscar por <a
+                                    class="url-home">Fuente</a> o <a class="url-home">Tema</a></p>
+                            <p id="tags"><a class="url-tag">elecciones andalucia</a><a class="url-tag">vivienda</a><a
+                                    class="url-tag">nacimientos</a><a class="url-tag">resultados empresariales</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divisoria-seccion">
+
+            <div id="modulo-temas-1">
+                <div class="encabezado-modulo">
+                    <h3><a class="link-temas-modulos" href="temas">Análisis destacados de hoy</a></h3>
+                </div>
+
+
+                <div class="cuerpo-modulo">
+                    <div class="modulo-tema-destacado">
+                        <div class="img-tema-destacado"><img src="rsc/img-portada-tema-destacado-1.jpg" /></div>
+                        <div class="titular-tema-destacado">
+                            <h4>Por primera vez, los profesionales sanitarios colegiados
+                                alcanzan el millón, más de 663.000 son enfermeros y médicos</h4>
+                        </div>
+                    </div>
+                    <div class="modulo-temas-listado">
+                        <div class="entrada-modulo-listado-1">
+                            <a class="enlace-articulo">España supera los 33 millones de turistas hasta mayo, un 13,6%
+                                más,
+                                con gasto de 43.22 millones (+22%)</a>
+                        </div>
+                        <div class="entrada-modulo-listado-2">
+                            <a class="enlace-articulo">El PIB de México creció un 3,1% en 2023</a>
+                        </div>
+                        <div class="entrada-modulo-listado-1">
+                            <a class="enlace-articulo">Los incendios forestales arrasan 21.730 hectáreas en la primera
+                                mitad
+                                del año, un 63,8% menos que en 2023</a>
+                        </div>
+                        <div class="entrada-modulo-listado-2">
+                            <a class="enlace-articulo">El 40% de los españoles ha esperado entre 1 y 3 meses para tener
+                                cita
+                                con un especialista en salud mental</a>
+                        </div>
+                        <div class="entrada-modulo-listado-1">
+                            <a class="enlace-articulo">Los embalses suben al 66% con 36.992 hm3 de agua más y las
+                                cuencas
+                                catalanas están al 17,6%</a>
+                        </div>
+                        <div class="entrada-modulo-listado-2">
+                            <a class="enlace-articulo">La facturación del sector servicios se dispara un 7,3% en
+                                marzo</a>
+                        </div>
+                        <div class="entrada-modulo-listado-1">
+                            <a class="enlace-articulo">España no supera los 30.000 nacimientos mensuales desde octubre
+                                de
+                                2021, según el INE</a>
+                        </div>
+                        <div class="entrada-modulo-listado-2">
+                            <a class="enlace-articulo">El PIB de la OCDE frena su avance en el primer trimestre al 0,1%,
+                                cuatro décimas menos</a>
+                        </div>
+                        <div class="entrada-modulo-listado-1">
+                            <a class="enlace-articulo">Alemania creció un 0,4% en el primer trimestre, el doble de lo
+                                calculado inicialmente</a>
+                        </div>
+                        <div class="entrada-modulo-listado-2">
+                            <a class="enlace-articulo">La facturación de las empresas se dispara un 8,9% en marzo y
+                                encadena
+                                cuatro meses de alzas</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divisoria-seccion">
+
+            <div id="modulo-espacio-datos">
+                <div class="encabezado-modulo">
+                    <h3><a class="link-temas-modulos" href="temas">Por qué este espacio de datos</a></h3>
+                </div>
+                <div class="cuerpo-modulo" id="modulo-espacio-datos-cuerpo">
+                    <div id="img-por-que-espacio-datos">
+                    </div>
+                    <div id="texto-espacio-datos">
+                        <ul>
+                            <li>
+                                <b>EpData</b> es un espacio donde se comparten miles de datos públicos y privados de
+                                interés
+                                informativo. Encuentra información y crea fácilmente gráficas con <b>nuestras
+                                    herramientas
+                                    de
+                                    IA</b> y aumenta el impacto de tus noticias, notas de prensa o estudios.
+                            </li>
+                            <li>
+                                <b>Nosotros actualizamos los datos</b> para mantenerte informado del sector que te
+                                interesa
+                                y te lo ponemos fácil para que puedas centrarte en tu trabajo.
+                            </li>
+                            <li>
+                                <b>¿Te interesa que los datos de tu organización formen parte de este espacio de
+                                    datos?</b>
+                                Ponte en contacto con nosotros y hablamos
+                            </li>
+
+                            <a href="contacto">Contacta aquí</a>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divisoria-seccion">
+
+            <div id="modulo-temas-2">
+                <div class="encabezado-modulo">
+                    <h3><a class="link-temas-modulos" href="temas">Últimos datos actualizados</a></h3>
+                </div>
+                <div class="cuerpo-modulo">
+                    <div class="modulo-tema-destacado">
+                        <div class="img-tema-destacado"><img src="rsc/nacimientos-ev.jpg" /></div>
+                        <div class="titular-tema-destacado">
+                            <h4>Nacimientos a nivel mensual en España: evolución a nivel de comunidades autónomas y
+                                provincias</h4>
+
+                        </div>
+                    </div>
+                    <div class="modulo-datos-listado">
+                        <div class="entrada-modulo-datos">
+                            <a class="enlace-articulo">
+                                <p class="titulo-dato-modulo">Confianza del consumidor</p>
+                                <p class="serietipo-dato-modulo">Índice (Índice de valoración de la situación actual)
+                                    según
+                                    país</p>
+                                <p class="act-dato-modulo">Hace 5 segundos</p>
+                            </a>
+                        </div>
+                        <div class="entrada-modulo-datos">
+                            <a class="enlace-articulo">
+                                <p class="titulo-dato-modulo">Cuentas públicas</p>
+                                <p class="serietipo-dato-modulo">Déficit en porcentaje del PIB según comunidad autónoma
+                                </p>
+                                <p class="act-dato-modulo">Hace 20 minutos</p>
+                            </a>
+                        </div>
+                        <div class="entrada-modulo-datos">
+                            <a class="enlace-articulo">
+                                <p class="titulo-dato-modulo">Euribor</p>
+                                <p class="serietipo-dato-modulo">Euribor mensual según país</p>
+                                <p class="act-dato-modulo">Hace 40 minutos</p>
+                            </a>
+                        </div>
+                        <div class="entrada-modulo-datos">
+                            <a class="enlace-articulo">
+                                <p class="titulo-dato-modulo">Estado de los embalses</p>
+                                <p class="serietipo-dato-modulo">Agua embalsada según cuenca hidrográfica</p>
+                                <p class="act-dato-modulo">Hace 1 hora</p>
+                            </a>
+                        </div>
+                        <div class="entrada-modulo-datos">
+                            <a class="enlace-articulo">
+                                <p class="titulo-dato-modulo">Denuncias de violencia de género</p>
+                                <p class="serietipo-dato-modulo">Denuncias según país y origen de la denuncia</p>
+                                <p class="act-dato-modulo">Hace 2 horas</p>
+                            </a>
+                        </div>
+                        <div class="entrada-modulo-datos">
+                            <a class="enlace-articulo">
+                                <p class="titulo-dato-modulo">Virus de la Inmunodeficiencia Humana (VIH)</p>
+                                <p class="serietipo-dato-modulo">Nuevos casos clínicos según comunidad autónoma, sexo
+                                    del
+                                    paciente y edad del paciente</p>
+                                <p class="act-dato-modulo">Hace 3 horas</p>
+                            </a>
+                        </div>
+                        <div class="entrada-modulo-datos">
+                            <a class="enlace-articulo">
+                                <p class="titulo-dato-modulo">Virus de la Inmunodeficiencia Humana (VIH)</p>
+                                <p class="serietipo-dato-modulo">Nuevos casos clínicos según país, sexo del paciente y
+                                    edad
+                                    del paciente</p>
+                                <p class="act-dato-modulo">Hace 3 horas</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divisoria-seccion">
+
+            <div class="modulo-fuentes">
+                <div class="encabezado-modulo">
+                    <h3><a class="link-temas-modulos" href="temas">Las fuentes que utilizamos</a></h3>
+                </div>
+                <div class="cuerpo-modulo-fuentes">
+                    <button class="flecha izquierda"
+                        onclick="document.querySelector('.contenedor-fuentes').scrollBy(-300, 0)">&#9664;</button>
+                    <div class="contenedor-fuentes">
+                        <div class="img-fuente" data="eurostat"><img src="/rsc/logos-fuentes/eurostat.jpg" /></div>
+                        <div class="img-fuente" data="ibge"><img src="/rsc/logos-fuentes/ibge.jpg" /></div>
+                        <div class="img-fuente" data="ine"><img src="/rsc/logos-fuentes/ine.jpg" /></div>
+                        <div class="img-fuente" data="INEGI"><img src="/rsc/logos-fuentes/INEGI.jpg" /></div>
+                        <div class="img-fuente" data="ministerio-trabajo"><img
+                                src="/rsc/logos-fuentes/ministerio-trabajo.jpg" /></div>
+                        <div class="img-fuente" data="ministerio-sanidad"><img
+                                src="/rsc/logos-fuentes/ministerio-sanidad.jpg" /></div>
+                        <div class="img-fuente" data="OCDE"><img src="/rsc/logos-fuentes/OCDE.jpg" /></div>
+                        <div class="img-fuente" data="OMS"><img src="/rsc/logos-fuentes/OMS.jpg" /></div>
+                    </div>
+                    <button class="flecha derecha"
+                        onclick="document.querySelector('.contenedor-fuentes').scrollBy(300, 0)">&#9654;</button>
+                </div>
+            </div>
+            <hr class="divisoria-seccion">
+
+            <div id="modulo-productos-epdata">
+                <div class="encabezado-modulo">
+                    <h3><a class="link-temas-modulos" href="temas">Productos de EpData</a></h3>
+                </div>
+                <div id="cuerpo-modulo-productos">
+                    <div class="producto-epdata">
+                        <div class="img-producto" id="img-graficas"></div>
+                        <div class="titulo-producto">
+                            <h4>Crea gráficas</h4>
+                        </div>
+                        <div class="cuerpo-producto">
+                            <p><b>Crea y personaliza tus propios gráficos</b> con datos de nuestra base de datos, que
+                                actualizamos de manera continua. Con la ayuda de <b>nuestra IA</b> encuentra el aspecto
+                                que
+                                mejor encaje en tu proyecto e intégralo en tu propio código.</p>
+                        </div>
+                    </div>
+                    <div class="producto-epdata">
+                        <div class="img-producto" id="img-api"></div>
+                        <div class="titulo-producto">
+                            <h4>Usa nuestra API</h4>
+                        </div>
+                        <div class="cuerpo-producto">
+                            <p>¿Prefieres datos en bruto? <b>Conéctate a nuestra API</b> y conecta tu proyecto a
+                                nuestros
+                                datos, en formato JSON o XML.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divisoria-seccion">
+
+            <div id="modulo-temas-3">
+                <div class="encabezado-modulo">
+                    <h3><a class="link-temas-modulos" href="temas">Temas</a></h3>
+                </div>
+                <div id="cuerpo-modulo-temas">
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-previsiones"></div>
+                        <div class="titulo-tema">
+                            <h4>Previsiones económicas</h4>
+                        </div>
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-resultados-empresariales"></div>
+                        <div class="titulo-tema">
+                            <h4>Resultados empresariales</h4>
+                        </div>
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-demografia"></div>
+                        <div class="titulo-tema">
+                            <h4>Demografía y población</h4>
+                        </div>
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-municipio-datos"></div>
+                        <div class="titulo-tema">
+                            <h4>Tu municipio, en datos</h4>
+                        </div>
+
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-economia-internacional"></div>
+                        <div class="titulo-tema">
+                            <h4>Economía internacional</h4>
+                        </div>
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-migracion"></div>
+                        <div class="titulo-tema">
+                            <h4>Migración</h4>
+                        </div>
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-vivienda"></div>
+                        <div class="titulo-tema">
+                            <h4>Vivienda</h4>
+                        </div>
+
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-violencia-genero"></div>
+                        <div class="titulo-tema">
+                            <h4>Violencia de género</h4>
+                        </div>
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="img-tema" id="img-salud"></div>
+                        <div class="titulo-tema">
+                            <h4>Salud</h4>
+                        </div>
+                    </div>
+                    <div class="modulo-tema">
+                        <div class="titulo-tema-ver-mas">
+                            <h4>Ver más ▸</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="divisoria-seccion">
+
+        </div>
+        <div id="footer-epdata">
+            <div class="footer-enlaces">
+                <a class="url-home" href="contacto.html">Contacto</a> |
+                <a class="url-home" href="aviso-legal.html">Aviso legal</a> |
+                <a class="url-home" href="politica-privacidad.html">Política de privacidad</a> |
+                <a class="url-home" href="politica-cookies.html">Política de cookies</a> |
+                <a class="url-home" href="gestionar-cookies.html">Gestionar consentimiento cookies</a> |
+                <a class="url-home" href="mapa-web.html">Mapa web</a>
+            </div>
+            <div id="editado-por">@2025 - EpData - editado por <a id="url-a-ep">Europa <span
+                        id="rojo-ep">Press</span></a></div>
+
+        </div>
+
+</body>
